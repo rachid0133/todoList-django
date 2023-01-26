@@ -108,13 +108,16 @@ input {
 </style>
 <div id="myDIV" class="header">
   <h2>My To Do List</h2>
-  <input type="text" id="myInput" placeholder="Title...">
-  <span onclick="newElement()" class="addBtn">Add</span>
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" id="myInput" name="title" placeholder="Title...">
+      <input type="submit" onclick="newElement()" class="addBtn" value="Add" />
+    </form>
 </div>
 
 <ul id="myUL">
- <li class="checked">Captain</li>
- <li>jeck</li>
+ <li class="checked">Captain<span class="close">Delete</span></li>
+ <li>jack<span class="close">Delete</span></li>
 </ul>
 
 <script>
