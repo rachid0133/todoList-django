@@ -9,6 +9,11 @@ def index(request):
         new_url = Task(title = request.POST['title'])
         new_url.save()
         return redirect('/')
-    return render(request, 'index.html', {'task':tasks})
+    return render(request, 'index.html', {'tasks':tasks})
+
+def delete(request, pk):
+    task = Task.objects.get(id=pk)
+    task.delete()
+    return redirect('/')
 
 

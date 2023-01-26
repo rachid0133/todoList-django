@@ -59,6 +59,8 @@ ul li.checked::before {
     right: 0;
     top: 0;
     padding: 12px 16px 12px 16px;
+    text-decoration: none;
+    color:black;
 }
 
 .close:hover {
@@ -116,8 +118,9 @@ input {
 </div>
 
 <ul id="myUL">
- <li class="checked">Captain<span class="close">Delete</span></li>
- <li>jack<span class="close">Delete</span></li>
+ {% for task in tasks%}
+ <li>{{task.title}}<span><a href="delete/{{task.id}}" class="close">Delete</a></span></li>
+ {% endfor %}
 </ul>
 
 <script>
